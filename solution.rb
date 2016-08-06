@@ -20,7 +20,7 @@ def solution(a)
     week_utilization.each do |day|
       last_day = day + 6
       potential = input.select { |x| x >= day && x <= last_day }
-      better_op_exists =  true if potential.length > week_utilization.length
+      better_op_exists = true if potential.length > week_utilization.length
     end
 
     if week_utilization.length >= 4 && !better_op_exists
