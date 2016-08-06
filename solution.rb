@@ -33,5 +33,3 @@ def solution(a)
   end
   cost
 end
-
-puts solution(ARGV.map(&:to_i))
