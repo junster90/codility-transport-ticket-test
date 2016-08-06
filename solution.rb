@@ -1,14 +1,15 @@
 def solution(a)
+  daily_ticket_price = 2
+  weekly_ticket_price = 7
+  monthly_ticket_price = 25
+
   input = a.clone
-  daily_ticket = 2
-  weekly_ticket = 7
-  monthly_ticket = 25
 
   cost = 0
 
-  return 25 if input.length >= 23
+  return monthly_ticket_price if input.length >= 23
 
-  while input.zero?
+  until input.length.zero?
     today = input.first
 
     end_of_week = today + 6
@@ -23,12 +24,14 @@ def solution(a)
     end
 
     if week_utilization.length >= 4 && !better_op_exists
-      cost += weekly_ticket
+      cost += weekly_ticket_price
       input.reject! { |x| x <= end_of_week }
     else
-      cost += daily_ticket
+      cost += daily_ticket_price
       input.delete(today)
     end
   end
   cost
 end
+
+puts solution(ARGV.map(&:to_i))
